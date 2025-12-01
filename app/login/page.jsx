@@ -130,7 +130,7 @@ export default function LoginPage() {
             </div>
             <div className="flex items-center space-x-2">
               <span className="badge badge-green text-xs">Teacher</span>
-              <span>teacher / Teacher123!</span>
+              <span>Paul / Paul123!</span>
             </div>
           </div>
         </div>

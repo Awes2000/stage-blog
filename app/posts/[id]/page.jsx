@@ -6,7 +6,8 @@ import CommentBox from '@/components/CommentBox'
 import Link from 'next/link'
 
 async function getPost(id) {
-  const response = await fetch(`http://localhost:3000/api/posts/get?id=${id}`, {
+  const baseUrl = process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'
+  const response = await fetch(`${baseUrl}/api/posts/get?id=${id}`, {
     cache: 'no-store',
   })
   const data = await response.json()

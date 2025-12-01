@@ -5,9 +5,10 @@ import PostCard from '@/components/PostCard'
 import Link from 'next/link'
 
 async function getPosts(category) {
+  const baseUrl = process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'
   const url = category
-    ? `http://localhost:3000/api/posts/get?category=${category}`
-    : 'http://localhost:3000/api/posts/get'
+    ? `${baseUrl}/api/posts/get?category=${category}`
+    : `${baseUrl}/api/posts/get`
 
   const response = await fetch(url, { cache: 'no-store' })
   const data = await response.json()
