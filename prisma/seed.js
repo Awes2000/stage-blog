@@ -19,18 +19,32 @@ async function main() {
   })
   console.log('Created admin user:', admin)
 
-  // Create teacher user
-  const teacherPassword = await bcrypt.hash('Teacher123!', 10)
-  const teacher = await prisma.user.upsert({
-    where: { username: 'teacher' },
+  // Create teacher user: Paul
+  const paulPassword = await bcrypt.hash('Paul123!', 10)
+  const paul = await prisma.user.upsert({
+    where: { username: 'Paul' },
     update: {},
     create: {
-      username: 'teacher',
-      password: teacherPassword,
+      username: 'Paul',
+      password: paulPassword,
       role: 'teacher',
     },
   })
-  console.log('Created teacher user:', teacher)
+  console.log('Created teacher user:', paul)
+
+  // Add more teachers here if needed:
+  // Example:
+  // const teacher2Password = await bcrypt.hash('Password123!', 10)
+  // const teacher2 = await prisma.user.upsert({
+  //   where: { username: 'TeacherName' },
+  //   update: {},
+  //   create: {
+  //     username: 'TeacherName',
+  //     password: teacher2Password,
+  //     role: 'teacher',
+  //   },
+  // })
+  // console.log('Created teacher user:', teacher2)
 
   // Create default settings
   const settings = await prisma.settings.upsert({
